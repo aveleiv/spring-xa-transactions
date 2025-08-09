@@ -5,6 +5,3 @@ logging:
 #    javax.transaction: TRACE
 #    jakarta.transaction: TRACE
 #    com.atomikos: TRACE
-
-
-
