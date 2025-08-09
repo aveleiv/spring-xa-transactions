@@ -1,0 +1,17 @@
+# Version catalog is a central place for you to declare and version dependencies
+# https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
+# https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
+
+[versions]
+kotlin = "2.2.0"
+springBoot3 = "3.5.4"
+springDependencyManagement = "1.1.7"
+atomikos = "6.0.0"
+assertjDB = "2.0.2"
+
+[libraries]
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+springBoot3Plugin = { module = "org.springframework.boot:org.springframework.boot.gradle.plugin", version.ref = "springBoot3" }
+springDependencyManagementPlugin = { module = "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin", version.ref = "springDependencyManagement" }
+assertjDB = { module = "org.assertj:assertj-db", version.ref = "assertjDB" }
+atomikosSpringBoot3 = { module = "com.atomikos:transactions-spring-boot3-starter", version.ref = "atomikos" }
