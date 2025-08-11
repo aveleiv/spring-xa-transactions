@@ -1,0 +1,7 @@
+logging:
+  level:
+    root: INFO
+#    org.springframework.transaction: TRACE
+#    javax.transaction: TRACE
+#    jakarta.transaction: TRACE
+#    com.atomikos: TRACE

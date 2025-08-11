@@ -20,3 +20,4 @@ plugins {
 
 rootProject.name = "spring-xa-transactions"
 include("spring-boot-3-postgres-mq")
+include("spring-boot-2-postgres-mq")
