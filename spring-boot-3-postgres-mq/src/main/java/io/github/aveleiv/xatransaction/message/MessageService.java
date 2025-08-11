@@ -18,7 +18,7 @@ public class MessageService {
     }
 
     @Transactional(transactionManager = "xaTransactionManager")
-    public void save(Message message) {
+    public void sendAndSave(Message message) {
         log.atInfo()
                 .addArgument(message)
                 .log(() -> "Send message to jms: {}");
@@ -29,5 +29,19 @@ public class MessageService {
                 .log(() -> "Save message to database: {}");
 
         messageRepository.save(message);
+    }
+
+    @Transactional(transactionManager = "xaTransactionManager")
+    public void saveAndSend(Message message) {
+        log.atInfo()
+                .addArgument(message)
+                .log(() -> "Save message to database: {}");
+
+        messageRepository.save(message);
+
+        log.atInfo()
+                .addArgument(message)
+                .log(() -> "Send message to jms: {}");
+        jms.convertAndSend("messages", message.message());
     }
 }
