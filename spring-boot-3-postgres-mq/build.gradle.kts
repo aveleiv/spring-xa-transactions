@@ -1,5 +1,7 @@
 plugins {
-    id("io.github.aveleiv.convention.java-spring-boot-3")
+    id("io.github.aveleiv.convention.java-common")
+    alias(libs.plugins.springBoot3)
+    alias(libs.plugins.spring6DependencyManagement)
 }
 
 group = "io.github.aveleiv"
@@ -7,11 +9,22 @@ version = "unspecified"
 
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-activemq")
+    implementation(libs.spring.boot.jdbc)
+    implementation(libs.spring.boot.activemq)
+    implementation(libs.atomikos.springBoot3)
+    implementation(libs.jakarta.transactions)
 
-    runtimeOnly("org.postgresql:postgresql")
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
+    runtimeOnly(libs.postgres)
 
-    testImplementation("org.testcontainers:activemq")
-    testImplementation("org.testcontainers:postgresql")
+    testImplementation(libs.spring.boot.test)
+    testImplementation(libs.spring.boot.testcontainers)
+
+    testImplementation(libs.assertj.db)
+
+    testImplementation(libs.testcontainers.junit)
+    testImplementation(libs.testcontainers.activemq)
+    testImplementation(libs.testcontainers.postgres)
 }
 
